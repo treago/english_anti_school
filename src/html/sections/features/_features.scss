@@ -1,0 +1,55 @@
+@use "../../../styles/mixins" as *;
+$gap: 68px;
+
+.features {
+  padding: $gap 0;
+
+  &__wrapper {
+    display: flex;
+    gap: $gap 40px;
+  }
+
+  .block {
+    flex-basis: 50%;
+
+    &__title {
+      font-size: 34px;
+      line-height: 47px;
+      margin-bottom: 28px;
+    }
+
+    &__details {
+      li {
+        display: flex;
+        align-items: flex-start;
+        column-gap: 16px;
+        font-size: 16px;
+        line-height: 30px;
+        color: $blue-dark;
+
+        &::before {
+          content: "";
+          display: block;
+          width: 30px;
+          height: 30px;
+          flex-shrink: 0;
+          @include mask-contain();
+          mask-image: var(--icon-check);
+          background-color: $yellow;
+        }
+      }
+    }
+  }
+}
+
+@include rmax($md) {
+  .features {
+    &__wrapper {
+      flex-wrap: wrap;
+    }
+
+    .block {
+      flex-basis: 100%;
+    }
+  }
+}

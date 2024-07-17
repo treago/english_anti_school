@@ -1,0 +1,91 @@
+@use "../mixins" as *;
+
+html,
+body {
+  scroll-behavior: smooth;
+  overscroll-behavior-y: none;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $black;
+  background-color: $white;
+  min-width: 320px;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.wrapper {
+  position: relative;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr auto;
+  min-height: 100svh;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  width: fit-content;
+  padding: 12px 20px;
+  background-color: $blue;
+  border: 2px solid $blue;
+  border-radius: 2px;
+  color: $white;
+  line-height: 1;
+  white-space: nowrap;
+  text-transform: uppercase;
+  transition: background-color 0.25s ease-in-out;
+
+  @include hover {
+    background-color: $blue-dark;
+    border-color: $blue-dark;
+  }
+
+  &--icon {
+    &::after {
+      content: "";
+      display: block;
+      @include mask-contain;
+      width: 24px;
+      height: 24px;
+      background-color: $white;
+    }
+  }
+
+  &--outline {
+    background-color: $white;
+    color: $black;
+
+    @include hover {
+      background-color: $blue;
+      color: $white;
+    }
+  }
+
+  &--yellow {
+    background-color: $yellow;
+    border-color: $yellow;
+    color: $black;
+
+    &::after {
+      background-color: $blue;
+    }
+
+    @include hover {
+      background-color: $yellow-dark;
+      border-color: $yellow-dark;
+    }
+  }
+}

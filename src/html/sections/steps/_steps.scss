@@ -1,0 +1,158 @@
+@use "../../../styles/mixins" as *;
+.steps {
+  padding: 68px 30px;
+  background-color: $gray-light;
+
+  &__title {
+    font-size: 34px;
+    line-height: 47px;
+    margin-bottom: 34px;
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.step {
+  $size: 160px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 24px;
+  max-width: $size;
+  position: relative;
+
+  &__icon {
+    border-radius: 50%;
+    background-color: $blue;
+    width: 100%;
+    max-width: $size;
+    height: $size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 80px;
+      @include mask-contain();
+      background-color: $white;
+    }
+
+    &--purchase {
+      &::after {
+        mask-image: var(--icon-purchase);
+      }
+    }
+
+    &--test {
+      &::after {
+        mask-image: var(--icon-test);
+      }
+    }
+
+    &--schedule {
+      background-color: $yellow;
+
+      &::after {
+        mask-image: var(--icon-schedule);
+      }
+    }
+
+    &--arrow {
+      background-color: unset;
+
+      &::after {
+        width: 125px;
+        height: 125px;
+        mask-image: var(--icon-arrow-right);
+        background-color: $steps-arrow;
+      }
+    }
+  }
+
+  &__label {
+    font-size: 24px;
+    line-height: 25px;
+    color: $blue;
+    text-align: center;
+  }
+}
+
+@include rmax($lg) {
+  .step {
+    $size: 130px;
+
+    max-width: $size;
+
+    &__icon {
+      max-width: $size;
+      height: $size;
+
+      &::after {
+        width: 65px;
+        height: 65px;
+      }
+
+      &--arrow {
+        &::after {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+
+    &__label {
+      font-size: 20px;
+      line-height: 21px;
+    }
+  }
+}
+
+@include rmax($md) {
+  .steps {
+    &__list {
+      flex-direction: column;
+      align-items: center;
+      row-gap: 30px;
+    }
+  }
+
+  .step {
+    $size: 160px;
+
+    max-width: 300px;
+
+    &__icon {
+      max-width: $size;
+      height: $size;
+
+      &::after {
+        width: 80px;
+        height: 80px;
+      }
+
+      &--arrow {
+        transform: rotate(90deg);
+        height: 60px;
+
+        &::after {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+
+    &__label {
+      font-size: 24px;
+      line-height: 25px;
+    }
+  }
+}

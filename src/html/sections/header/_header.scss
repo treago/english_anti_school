@@ -1,0 +1,240 @@
+@use "../../../styles/mixins" as *;.header {
+  background-color: $blue;
+  position: sticky;
+  top: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+  &.scrolled {
+    .nav__link {
+      padding: 20px 0;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+  }
+
+  &__item {
+    position: relative;
+    overflow: hidden;
+
+    @include hover() {
+      .nav__label {
+        animation-name: navLabelHover;
+        animation-duration: 0.4s;
+      }
+
+      .nav__link::before {
+        visibility: visible;
+        bottom: -100%;
+      }
+    }
+
+    &:hover,
+    &.active {
+      .nav__link {
+        color: $white;
+
+        &::after {
+          visibility: visible;
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: $yellow-light;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    padding: 30px 0;
+    transition: padding 0.25s ease-in-out, color 0.25s ease-in-out;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 100%;
+      visibility: hidden;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      opacity: 0.4;
+      background: $yellow-light;
+      transition: bottom 0.4s ease-in-out;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: 1;
+      height: 6px;
+      width: 100%;
+      background: $yellow;
+      bottom: -100%;
+      visibility: hidden;
+      transition: bottom 0.4s ease-in-out;
+    }
+  }
+
+  &__label {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.burger {
+  display: none;
+  min-width: 40px;
+  height: 32px;
+  position: relative;
+  z-index: 10;
+  color: $white;
+  cursor: pointer;
+
+  @include rmax($md) {
+    display: block;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+  }
+
+  &__line,
+  &::before,
+  &::after {
+    position: absolute;
+    left: 0;
+    top: calc(50% - 2px);
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transition: 0.3s ease-in-out;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    top: calc(100% - 2px);
+  }
+
+  &.active {
+    .burger__line {
+      transform: scale(0);
+    }
+
+    &::before,
+    &::after {
+      top: 50%;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.logo {
+  z-index: 10;
+  color: $white;
+  font-family: var(--ff-secondary), cursive;
+  font-size: 28px;
+
+  span {
+    color: $yellow;
+  }
+}
+
+@keyframes navLabelHover {
+  0% {
+    top: 0;
+  }
+
+  50% {
+    top: 200px;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@include rmax($lg) {
+  .nav {
+    &__list {
+      column-gap: 30px;
+    }
+
+    &__link {
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+}
+
+@include rmax($md) {
+  $headerHeight: 80px;
+  $headerScrolledHeight: 70px;
+
+  .nav {
+    height: $headerHeight;
+    transition: height 0.25s ease-in-out;
+
+    &__list {
+      position: fixed;
+      left: 0;
+      top: 0;
+      transform: translateY(-100%);
+      flex-direction: column;
+      width: 100%;
+      background: $blue;
+      transition: top 0.4s ease-in-out, transform 0.4s ease-in-out;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    &.active .nav__list {
+      top: $headerHeight;
+      transform: translateY(0);
+    }
+  }
+
+  .scrolled .nav {
+    height: $headerScrolledHeight;
+
+    &.active .nav__list {
+      top: $headerScrolledHeight;
+    }
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+}

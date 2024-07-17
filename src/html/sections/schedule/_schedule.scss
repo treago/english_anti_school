@@ -1,0 +1,140 @@
+@use "../../../styles/mixins" as *;
+.schedule {
+  padding: 68px 0;
+  background-color: $blue;
+
+  &__wrapper {
+    display: flex;
+    gap: 60px 40px;
+    margin-bottom: 60px;
+  }
+
+  &__title {
+    font-size: 34px;
+    line-height: 47px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: $white;
+  }
+
+  &__subtitle {
+    font-size: 24px;
+    line-height: 25px;
+    margin-bottom: 60px;
+    text-align: center;
+    color: $yellow;
+  }
+
+  .block {
+    flex-basis: 50%;
+    border-radius: 10px;
+    border: solid 4px $yellow;
+    padding: 60px 30px 40px;
+    position: relative;
+
+    &__title {
+      position: absolute;
+      display: block;
+      padding: 8px 16px;
+      margin: 0;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      line-height: 23px;
+      font-weight: 500;
+      border-radius: 8px;
+      background-color: $yellow;
+      color: $black;
+      text-align: center;
+    }
+  }
+
+  .details {
+    $size: 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 16px;
+
+    &__item {
+      display: flex;
+      align-items: flex-start;
+      column-gap: 20px;
+      font-size: 20px;
+      line-height: $size;
+      color: $black;
+
+      &::before {
+        content: "";
+        display: block;
+        width: $size;
+        height: $size;
+        @include mask-contain();
+        background-color: $black;
+        flex-shrink: 0;
+      }
+
+      &--stream {
+        &::before {
+          mask-image: var(--icon-stream);
+        }
+      }
+
+      &--practice {
+        &::before {
+          mask-image: var(--icon-practice);
+        }
+      }
+    }
+  }
+
+  .discount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 40px;
+
+    &__title {
+      font-size: 22px;
+      line-height: 36px;
+      text-align: center;
+
+      .old-price {
+        text-decoration: line-through;
+        color: $red;
+      }
+
+      .new-price {
+        font-size: 26px;
+        font-weight: 600;
+        color: $yellow;
+      }
+
+      .caption {
+        opacity: 0.7;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@include rmax($md) {
+  .schedule {
+    &__wrapper {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .block {
+      flex-basis: 100%;
+    }
+  }
+}
+
+@include rmax($xs) {
+  .schedule .details__item::before {
+    display: none;
+  }
+}

@@ -1,0 +1,84 @@
+@use "../../../styles/mixins" as *;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  &__content {
+    position: relative;
+    background-color: $white;
+    margin: auto;
+    padding: 40px;
+    border: 1px solid $gray;
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 40px;
+  }
+
+  .close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    @include mask-contain();
+    mask-image: var(--icon-cross);
+    background-color: $gray;
+    transition: background-color 0.25s ease;
+  }
+
+  .close:hover,
+  .close:focus {
+    background-color: $black;
+  }
+}
+
+.discount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 40px;
+
+  &__title {
+    font-size: 22px;
+    line-height: 36px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .content {
+    text-align: center;
+
+    &__title {
+      font-size: 40px;
+      line-height: 50px;
+      font-weight: bold;
+    }
+
+    &__old-price {
+      text-decoration: line-through;
+      color: $gray;
+      font-size: 30px;
+    }
+
+    &__new-price {
+      color: $red;
+    }
+
+    &__caption {
+      opacity: 0.7;
+      font-size: 20px;
+    }
+  }
+}

@@ -1,0 +1,175 @@
+@use "../../../styles/mixins" as *;
+.request {
+  padding: 60px 0;
+
+  &__wrapper {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__title {
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 34px;
+    margin-bottom: 28px;
+  }
+}
+
+.info {
+  flex-basis: 30%;
+}
+
+.form {
+  flex-basis: 70%;
+}
+
+.benefits {
+  margin-bottom: 24px;
+
+  &__title {
+    font-size: 20px;
+    line-height: 34px;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 25px;
+      column-gap: 8px;
+      color: $gray;
+
+      &::before {
+        content: "";
+        display: block;
+        flex-shrink: 0;
+        width: 25px;
+        height: 25px;
+        @include mask-contain();
+        mask-image: var(--icon-check);
+        background-color: $blue;
+      }
+    }
+  }
+}
+
+.contacts {
+  font-size: 14px;
+  line-height: 25px;
+  color: $gray;
+
+  &__title {
+    font-weight: 700;
+  }
+
+  &__link {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 8px;
+    transition: color 0.25s ease-in-out;
+
+    &::before {
+      content: "";
+      display: block;
+      flex-shrink: 0;
+      width: 25px;
+      height: 25px;
+      @include mask-contain();
+      background-color: $gray;
+    }
+
+    @include hover() {
+      color: $blue;
+    }
+
+    &--telegram {
+      &::before {
+        mask-image: var(--icon-telegram);
+      }
+    }
+
+    &--email {
+      &::before {
+        mask-image: var(--icon-email);
+      }
+    }
+  }
+}
+
+.request-form {
+  &__body {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  &__row {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+  }
+
+  &__group {
+    flex-grow: 1;
+  }
+
+  &__input {
+    width: 100%;
+    min-height: 50px;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 12px 18px;
+    border: 1px solid $input-border;
+    border-radius: 3px;
+    outline: 0;
+    transition: border-color 0.25s ease-in-out;
+
+    &:focus {
+      border-color: $blue-dark;
+    }
+  }
+
+  &__textarea {
+    resize: none;
+  }
+}
+
+@include rmax($md) {
+  .request {
+    &__wrapper {
+      flex-direction: column;
+    }
+  }
+
+  .request__title,
+  .benefits__title {
+    font-size: 34px;
+    line-height: 47px;
+  }
+
+  .request-form {
+    &__body {
+      justify-content: center;
+    }
+
+    &__row {
+      flex-wrap: wrap;
+    }
+
+    &__group {
+      flex-basis: 100%;
+    }
+  }
+
+  .info,
+  .form {
+    flex-basis: 100%;
+  }
+}
