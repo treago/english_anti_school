@@ -16,9 +16,7 @@ jobs:
       - name: Download workflow artifact
         uses: actions/download-artifact@v4
         with:
-          workflow: build_main.yml
-          name: build-artifact
-          path: ./build
+            name: build-artifact
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
