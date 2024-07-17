@@ -31,7 +31,7 @@ export default {
     //   },
     // },
   ],
-
+  base: "/english_anti_school/",
   build: {
     root: './src',
     rollupOptions: {
