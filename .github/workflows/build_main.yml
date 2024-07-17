@@ -38,5 +38,5 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          repository: owner/repository
+          repository: treago/english_anti_school.github.io
           event-type: build-success
