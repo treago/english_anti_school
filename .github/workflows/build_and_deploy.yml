@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Build & Deploy
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -34,22 +34,22 @@ jobs:
           name: build-artifact
           path: ./build
 
-deploy:
-  - name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+  deploy:
+      name: Deploy
+      needs: build
+      runs-on: ubuntu-latest
+      if: github.ref == 'refs/heads/main'
 
-    steps:
-      - name: Download workflow artifact
-        uses: actions/download-artifact@v4
-        with:
-            name: build-artifact
-            path: ./build
+      steps:
+        - name: Download workflow artifact
+          uses: actions/download-artifact@v4
+          with:
+              name: build-artifact
+              path: ./build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./build
+        - name: Deploy to GitHub Pages
+          uses: peaceiris/actions-gh-pages@v4
+          with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              publish_dir: ./build
           
