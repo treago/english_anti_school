@@ -79,7 +79,7 @@ const span = document.querySelector("#discountModal .close");
 
 setTimeout(() => {
   modal.classList.add('active');
-}, 1000);
+}, 30 * 1000);
 
 span.onclick = function () {
   modal.classList.remove('active');
