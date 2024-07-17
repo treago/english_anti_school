@@ -33,10 +33,3 @@ jobs:
         with:
           name: production-files
           path: ./build
-
-      - name: Trigger deployment workflow
-        uses: peter-evans/repository-dispatch@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          repository: treago/english_anti_school.github.io
-          event-type: build-success
