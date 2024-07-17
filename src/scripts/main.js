@@ -78,19 +78,19 @@ const modalButton = document.getElementById("discountModalButton");
 const span = document.querySelector("#discountModal .close");
 
 setTimeout(() => {
-  modal.style.display = "block";
-}, 30 * 1000);
+  modal.classList.add('active');
+}, 1000);
 
 span.onclick = function () {
-  modal.style.display = "none";
+  modal.classList.remove('active');
 };
 
 modalButton.onclick = function () {
-  modal.style.display = "none";
+  modal.classList.remove('active');
 };
 
 window.onclick = function (event) {
   if (event.target == modal) {
-    modal.style.display = "none";
+    modal.classList.remove('active');
   }
 };

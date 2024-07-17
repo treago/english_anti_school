@@ -1,4 +1,5 @@
-@use "../../../styles/mixins" as *;.about {
+@use "../../../styles/mixins" as *;
+.about {
   $sliderHeight: 530px;
 
   position: relative;
@@ -110,11 +111,11 @@
   position: relative;
 
   &--first {
-    background-color: rgb(234, 195, 206);
+    background-color: $pink-light;
   }
 
   &--second {
-    background-color: powderblue;
+    background-color: $blue-powder;
   }
 }
 
