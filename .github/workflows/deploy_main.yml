@@ -1,9 +1,8 @@
 name: Deploy
 
 on:
-  workflow_run:
-    workflows: [Build]
-    types: [completed]
+  repository_dispatch:
+    types: [build-success]
 
 jobs:
   deploy:
