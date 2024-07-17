@@ -1,7 +1,10 @@
 import vituum from 'vituum';
 import posthtml from '@vituum/vite-plugin-posthtml';
 import postcss from '@vituum/vite-plugin-postcss';
+import dotenv from 'dotenv';
 import { copyFileSync } from 'fs';
+
+dotenv.config();
 
 export default {
   plugins: [
@@ -31,7 +34,7 @@ export default {
     //   },
     // },
   ],
-  base: "/english_anti_school/",
+  base: process.env.NODE_ENV === 'production' ? process.env.VITE_APP_BASE_URL : '/',
   build: {
     root: './src',
     rollupOptions: {
