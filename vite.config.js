@@ -23,13 +23,13 @@ export default {
         }
       },
     }, 
-    {
-      name: 'copy-static-files',
-      writeBundle() {
-        copyFileSync('src/android-chrome-192x192.png', 'dist/android-chrome-192x192.png');
-        copyFileSync('src/android-chrome-512x512.png', 'dist/android-chrome-512x512.png');
-      },
-    },
+    // {
+    //   name: 'copy-static-files',
+    //   writeBundle() {
+    //     copyFileSync('src/android-chrome-192x192.png', 'dist/android-chrome-192x192.png');
+    //     copyFileSync('src/android-chrome-512x512.png', 'dist/android-chrome-512x512.png');
+    //   },
+    // },
   ],
 
   build: {
