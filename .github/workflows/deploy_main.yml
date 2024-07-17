@@ -1,8 +1,10 @@
 name: Deploy
 
 on:
-  repository_dispatch:
-    types: [build-success]
+  workflow_run:
+    workflows: [Build]
+    types:
+      - completed
 
 jobs:
   deploy:
@@ -12,11 +14,9 @@ jobs:
 
     steps:
       - name: Download workflow artifact
-        uses: dawidd6/action-download-artifact@v2.14.0
+        uses: actions/download-artifact@v2
         with:
-          workflow: build_main.yml
           name: production-files
-          path: ./build
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
