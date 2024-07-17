@@ -36,6 +36,7 @@ export default {
     root: './src',
     rollupOptions: {
       output: {
+        dir: 'build',
         assetFileNames: (asset) => {
           const filePath = asset.name.split('/');
           const fileName = filePath.pop();
