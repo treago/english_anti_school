@@ -1,6 +1,6 @@
-@import "_color.scss";
-@import "_font-face.scss";
-@import "_hover.scss";
-@import "_index.scss";
-@import "_mask-contain.scss";
-@import "_media.scss";
+@import "./_color.scss";
+@import "./_font-face.scss";
+@import "./_hover.scss";
+@import "./_index.scss";
+@import "./_mask-contain.scss";
+@import "./_media.scss";

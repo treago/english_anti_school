@@ -34,7 +34,7 @@
     @include hover() {
       .nav__label {
         animation-name: navLabelHover;
-        animation-duration: 0.4s;
+        animation-duration: 0.3s;
       }
 
       .nav__link::before {
@@ -64,7 +64,7 @@
     font-size: 20px;
     line-height: 23px;
     padding: 30px 0;
-    transition: padding 0.25s ease-in-out, color 0.25s ease-in-out;
+    transition: padding 0.3s ease-in-out, color 0.3s ease-in-out;
 
     &::before {
       content: "";
@@ -77,7 +77,7 @@
       width: 100%;
       opacity: 0.4;
       background: $yellow-light;
-      transition: bottom 0.4s ease-in-out;
+      transition: bottom 0.3s ease-in-out;
     }
 
     &::after {
@@ -90,7 +90,7 @@
       background: $yellow;
       bottom: -100%;
       visibility: hidden;
-      transition: bottom 0.4s ease-in-out;
+      transition: bottom 0.3s ease-in-out;
     }
   }
 
@@ -175,7 +175,7 @@
   }
 
   50% {
-    top: 200px;
+    top: 30px;
   }
 
   100% {

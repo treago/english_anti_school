@@ -24,15 +24,15 @@
   flex-direction: column;
   align-items: center;
   row-gap: 24px;
-  max-width: $size;
+  flex-basis: 20%;
   position: relative;
 
   &__icon {
     border-radius: 50%;
     background-color: $blue;
-    width: 100%;
-    max-width: $size;
     height: $size;
+    aspect-ratio: 1;
+    max-width: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,10 +90,7 @@
   .step {
     $size: 130px;
 
-    max-width: $size;
-
     &__icon {
-      max-width: $size;
       height: $size;
 
       &::after {
@@ -128,10 +125,7 @@
   .step {
     $size: 160px;
 
-    max-width: 300px;
-
     &__icon {
-      max-width: $size;
       height: $size;
 
       &::after {
