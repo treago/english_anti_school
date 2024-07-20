@@ -1,12 +1,14 @@
 @use "../../../styles/mixins" as *;
+$gap: 60px;
+
 .schedule {
-  padding: 68px 0;
+  padding: $gap 0;
   background-color: $blue;
 
   &__wrapper {
     display: flex;
-    gap: 60px 40px;
-    margin-bottom: 60px;
+    gap: $gap 40px;
+    margin-bottom: $gap;
   }
 
   &__title {
@@ -95,7 +97,7 @@
     align-items: center;
     row-gap: 40px;
 
-    &__title {
+    &__content {
       font-size: 22px;
       line-height: 36px;
       text-align: center;
@@ -103,9 +105,11 @@
       .old-price {
         text-decoration: line-through;
         color: $red;
+        white-space: nowrap;
       }
 
       .new-price {
+        white-space: nowrap;
         font-size: 26px;
         font-weight: 600;
         color: $yellow;
@@ -114,6 +118,13 @@
       .caption {
         opacity: 0.7;
         font-size: 20px;
+        max-width: 600px;
+      }
+
+      .link {
+        @include hover() {
+          color: $blue-powder;
+        }
       }
     }
   }

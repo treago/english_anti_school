@@ -7,9 +7,7 @@
   .container {
     position: absolute;
     height: $sliderHeight;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+    inset: 0;
   }
 
   &__caption {
@@ -21,7 +19,6 @@
     top: 50%;
     left: 50px;
     transform: translateY(-50%);
-    z-index: 1;
 
     .btn::after {
       mask-image: var(--icon-accounts);
@@ -108,7 +105,7 @@
 .swiper-slide {
   box-sizing: border-box !important;
   background-color: $white;
-  position: relative;
+  isolation: isolate;
 
   &--first {
     background-color: $pink-light;
@@ -132,15 +129,11 @@
     $sliderHeight: 440px;
 
     .container {
-      position: absolute;
       height: $sliderHeight;
-      left: 50%;
-      transform: translateX(-50%);
     }
 
     &__image {
       height: $sliderHeight;
-      position: relative;
       right: -30%;
     }
 

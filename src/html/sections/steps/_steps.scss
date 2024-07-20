@@ -1,6 +1,8 @@
 @use "../../../styles/mixins" as *;
+$gap: 60px;
+
 .steps {
-  padding: 68px 30px;
+  padding: $gap 30px;
   background-color: $gray-light;
 
   &__title {

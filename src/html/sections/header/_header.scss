@@ -1,10 +1,8 @@
-@use "../../../styles/mixins" as *;.header {
+@use "../../../styles/mixins" as *;
+.header {
   background-color: $blue;
   position: sticky;
-  top: 0;
-  top: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
   z-index: 20;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 

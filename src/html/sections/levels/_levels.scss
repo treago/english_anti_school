@@ -1,4 +1,5 @@
-@use "../../../styles/mixins" as *;$gap: 68px;
+@use "../../../styles/mixins" as *;
+$gap: 60px;
 
 .levels {
   padding: $gap 0;
@@ -34,7 +35,6 @@
 
     &__content {
       position: relative;
-      z-index: 1;
       max-width: 70%;
       display: flex;
       flex-direction: column;
@@ -125,6 +125,20 @@
 
     .card {
       flex-basis: 100%;
+    }
+  }
+}
+
+@include rmax($sm) {
+  .levels {
+    .card {
+      &__image {
+        opacity: 0.4;
+      }
+
+      &__content {
+        max-width: 100%;
+      }
     }
   }
 }
