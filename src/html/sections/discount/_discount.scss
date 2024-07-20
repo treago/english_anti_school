@@ -52,6 +52,7 @@
   flex-direction: column;
   align-items: center;
   row-gap: 40px;
+  max-width: 100%;
 
   &__title {
     font-size: 22px;
@@ -63,6 +64,8 @@
   .content {
     text-align: center;
     margin-bottom: 20px;
+    word-wrap: break-word;
+    max-width: 100%;
 
     &__title {
       font-size: 40px;
@@ -93,6 +96,14 @@
       @include hover() {
         color: $blue;
       }
+    }
+  }
+}
+
+@include rmax($md) {
+  .modal {
+    &__content {
+      padding: 30px;
     }
   }
 }
