@@ -170,3 +170,29 @@
     }
   }
 }
+
+@include rmax($xs) {
+  .about {
+    .container {
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    }
+
+    &__caption {
+      width: unset;
+      max-width: 360px;
+      top: unset;
+      left: 30px;
+      right: 30px;
+      bottom: 30px;
+      transform: unset;
+
+      h2 {
+        color: $white;
+      }
+
+      p {
+        color: $yellow-light;
+      }
+    }
+  }
+}
