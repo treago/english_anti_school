@@ -1,5 +1,6 @@
 import Swiper from "swiper/bundle";
 import { Navigation, Autoplay, EffectFade } from "swiper/modules";
+import {Maskito} from '@maskito/core';
 import "swiper/css";
 import "swiper/css/bundle";
 
@@ -94,3 +95,25 @@ window.onclick = function (event) {
     modal.classList.remove('active');
   }
 };
+
+// Handle phone input mask
+const phoneMask = {
+  mask: [
+      '(',
+      /\d/,
+      /\d/,
+      /\d/,
+      ')',
+      ' ',
+      /\d/,
+      /\d/,
+      /\d/,
+      '-',
+      /\d/,
+      /\d/,
+      /\d/,
+      /\d/,
+  ],
+}
+const element = document.querySelector('.request-form input[type="tel"]');
+new Maskito(element, phoneMask);
