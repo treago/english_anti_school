@@ -105,13 +105,10 @@ $gap: 60px;
       word-wrap: break-word;
 
       .old-price {
-        text-decoration: line-through;
         color: $red;
-        white-space: nowrap;
       }
 
       .new-price {
-        white-space: nowrap;
         font-size: 26px;
         font-weight: 600;
         color: $yellow;

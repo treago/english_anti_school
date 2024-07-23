@@ -90,3 +90,14 @@ body {
     }
   }
 }
+
+.old-price {
+  text-decoration: line-through;
+  color: $gray;
+  white-space: nowrap;
+}
+
+.new-price {
+  color: $red;
+  white-space: nowrap;
+}

@@ -74,18 +74,6 @@
       margin-bottom: 10px;
     }
 
-    &__old-price {
-      text-decoration: line-through;
-      color: $gray;
-      font-size: 30px;
-      white-space: nowrap;
-    }
-
-    &__new-price {
-      color: $red;
-      white-space: nowrap;
-    }
-
     &__caption {
       opacity: 0.8;
       font-size: 20px;
